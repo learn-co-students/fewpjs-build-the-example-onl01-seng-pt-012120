@@ -4,12 +4,10 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
-const modal = document.getElementById('modal');
-const likeButtons = document.querySelectorAll('.like-glyph');
-modal.setAttribute("class", "hidden");
 document.addEventListener('DOMContentLoaded', () => {
   const likeButtons = document.querySelectorAll('.like-glyph');
   const modal = document.getElementById('modal');
+  modal.setAttribute("class", "hidden");
 
   function displayError(error) {
     modal.removeAttribute('class');
