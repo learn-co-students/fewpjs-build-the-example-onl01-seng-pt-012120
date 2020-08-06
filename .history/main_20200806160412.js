@@ -3,10 +3,7 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
-document.addEventListener('DOMContentLoaded', ()=>{
-  const errorModal = document.getElementById('modal');
-  errorModal.hidden = true;
-})
+
 
 
 
