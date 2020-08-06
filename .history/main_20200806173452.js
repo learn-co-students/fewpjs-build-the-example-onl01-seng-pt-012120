@@ -8,13 +8,7 @@ errorModal.className = "hidden";
 
 const hearts = document.getElementsByClassName('like-glyph')
 for (const heart of hearts) {
-  heart.addEventListener('click', (e) => {
-    if (e.target.innerText == EMPTY_HEART) {
-      e.target.innerText = FULL_HEART;
-    } else {
-      e.target.innerText = EMPTY_HEART;
-    };
-  });
+  
 }
 
 
