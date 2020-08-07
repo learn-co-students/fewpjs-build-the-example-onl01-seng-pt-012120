@@ -11,11 +11,23 @@ for (const heart of hearts) {
   heart.addEventListener('click', (e) => {
     if (e.target.innerText == EMPTY_HEART) {
       e.target.innerText = FULL_HEART;
+      e.target.className = 'activated-heart'
+      mimicServerCall().then(resp => resp.json()).then(json => console.log(json)).catch((error)=>{
+        errorModal.className = "";
+        let p = document.getElementById('modal-message')
+        p.innerText = error
+      });
     } else {
+    
       e.target.innerText = EMPTY_HEART;
+      e.target.className = '';
+    
+      
     };
+
   });
 }
+
 
 
 //------------------------------------------------------------------------------
