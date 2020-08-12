@@ -21,25 +21,12 @@ function heartEvent (){
             element.className = "activated-heart";
          };
        }).catch(function(error){
-         errorDisplay(error)
+        document.getElementById("modal").className = "";
        })
       })
     });
 }
 
-function errorDisplay (error) {
-  const errorModal = document.getElementById("modal")
-  errorModal.className = "";
-
-  const modalMessage = document.getElementById('modal-message');
-  modalMessage.innerText = error;
-
-  function addHidden() {
-    errorModal.className = "hidden";
-  };
-  
-  setTimeout(addHidden,3000);
-};
 
 
 
