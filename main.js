@@ -3,42 +3,38 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  let hearts = document.getElementsByClassName("like-glyph")
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener('click', (e) =>{
-  
-    if (e.target.classList.value === "like"){
-      console.log(e)
-      clickHeart(e)
-    }
+
+  Array.from(hearts).forEach((heart) => {
+
+    heart.addEventListener('click', () =>{
+
+      mimicServerCall().then(()=>{
+        if (heart.classList.contains("activated-heart")){
+          heart.classList.remove("activated-heart");
+          heart.innerText = EMPTY_HEART
+        } else {
+          heart.classList.add("activated-heart");
+          heart.innerText = FULL_HEART}
+      }).catch(() => {
+        document.getElementById("modal").classList.remove("hidden");
+
+        setTimeout(function(){
+          document.getElementById("modal").classList.add("hidden");
+        }, 3000)
+      })
+
+    })
+
+
   })
+
+
 
 })
 
-function clickHeart (e){
-
-  mimicServerCall()
-  .then(function(response){
-   
-   if (e.target.innerHTML.includes("activated-heart")){
-
-    e.target.innerHTML = `Like! <span class="like-glyph">${EMPTY_HEART}</span>` 
-
-   
-  } else {
-  
-  e.target.innerHTML = `Like! <span class="like-glyph activated-heart">${FULL_HEART}</span>` }
-})
-  .catch((error)=>{
-   
-    document.getElementById("modal").className = ""
-
-  setTimeout(() => {
-    document.getElementById("modal").className = "hidden";
-  }, 5000);
-
-  })
-  }
 
 
 
